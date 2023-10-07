@@ -1,0 +1,40 @@
+
+.formContainer {
+    margin-top: 20px;
+  }
+  
+  .formRow {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 26px 26px;
+  }
+  
+  .formLabel {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .formSelect,
+  .formInput {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+  }
+  
+  .formButton {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el encabezado y el div de fondo */
+ .formHeader {
+    background-color: #0a84c8; /* Color de fondo adecuado */
+    color: #fff; /* Color del texto */
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 20px; /* Espacio entre el encabezado y el formulario */
+ }

@@ -1,0 +1,51 @@
+/* TransactionItem.module.css */
+
+/* Estilo base para TransactionItem */
+.transactionItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  /* Estilos condicionales para tipo de movimiento 'ingreso' */
+  .typeIngreso {
+    background-color: rgb(210 240 181) !important;
+  }
+  
+  /* Estilos condicionales para tipo de movimiento 'gasto' */
+  .typeGasto {
+    background-color: #fed8d8  !important;
+  }
+  
+  /* Estilo para el input */
+  .amountInput {
+    width: 50% !important; /* Ajusta el ancho según tus necesidades */
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 10px;
+    background: white !important;
+  }
+
+  /* Estilo para el contenedor de botones */
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha del contenedor */
+    gap: 10px; /* Espacio entre los botones */
+  }
+  
+  /* Estilo para los botones de acción */
+  .actionButton {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .labelNameTransactionItem {
+    margin-left: 10px;
+  }

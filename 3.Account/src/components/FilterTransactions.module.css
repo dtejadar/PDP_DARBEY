@@ -1,0 +1,66 @@
+/* FilterTransactions.module.css */
+
+.filterContainer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .input_search  {
+    width: 100%;
+    padding: 8px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Estilos para la nueva barra de búsqueda */
+.searchBar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    outline: none;
+  }
+  
+  .searchIcon {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px; /* Ajusta el espaciado interno según tus preferencias */
+    background-color: #c7c7c7;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 8px;
+    border-radius: inherit;
+  }
+  
+  .fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .radioLabel {
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .radioButton {
+    margin-right: 5px;
+  }
+  

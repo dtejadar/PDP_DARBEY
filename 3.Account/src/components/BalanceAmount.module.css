@@ -1,0 +1,29 @@
+/* BalanceAmount.module.css */
+.balanceContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto */
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-right: 10px;
+    font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto */
+  }
+  
+  .inputField {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto */
+    width: 32%;
+    margin-right: 6px;
+  }
+  
+  .readOnlyInput {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto */
+  }
