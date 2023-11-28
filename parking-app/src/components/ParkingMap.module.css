@@ -1,0 +1,44 @@
+
+  .paper {
+    padding: 4px 12px 1px 28px;
+    margin-top: -40px;
+  }
+  
+  .carParking {
+    background-color: #00e4ba; /* Puedes personalizar los estilos según tus necesidades */
+    height: 220px;
+    display: block !important;
+    align-items: center !important;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px !important;
+  }
+
+  .carParking button {
+    margin: auto;
+  }
+  
+  .motorcycleParking {
+    background-color: #646cff; /* Puedes personalizar los estilos según tus necesidades */
+    height: 220px;
+    display: block !important;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .parkingInto {
+    background-color: #eae4e4;    
+    margin-bottom: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .container {
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .vehicleNotAvailable {
+    background-color: rgb(255, 144, 144);
+  }

@@ -1,0 +1,39 @@
+/* RegisterVehicle.module.css */
+  
+.vehicleTypeSelector {
+    display: flex;
+    margin-bottom: 20px;
+
+    button {
+        flex: 1;
+        padding: 10px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background-color: #fff;
+
+        &.active {
+        background-color: #007bff;
+        color: #fff;
+        }
+
+        &:not(:last-child) {
+        margin-right: 10px;
+        }
+    }
+}
+
+.typeVehicle {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+}
+
+.typeVehicle p {
+    margin-top: 12px;
+    margin-right: 5px;
+}
+
+.formControl {
+    margin-bottom: 20px !important; /* Márgenes generales para todos los elementos del formulario */
+}
+

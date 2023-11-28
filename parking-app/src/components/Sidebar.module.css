@@ -1,0 +1,11 @@
+/* Sidebar.module.css */
+
+.drawer {
+    width: 240px;
+  }
+  
+  .menuButton {
+    left: -57%;
+    top: -40px;
+    z-index: 1;
+  }
