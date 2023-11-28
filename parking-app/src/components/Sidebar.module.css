@@ -1,7 +1,10 @@
 /* Sidebar.module.css */
 
 .drawer {
-    width: 240px;
+    width: 240px;  
+    height: 100% !important;
+    background: #034893; 
+    color: white
   }
   
   .menuButton {

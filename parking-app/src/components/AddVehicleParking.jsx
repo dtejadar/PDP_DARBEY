@@ -25,14 +25,14 @@ const AddVehicleParking = forwardRef(({ vehicle, parkingData, setParkingData, on
   const [filterData, setFilterData] = useState('');
   const [vehiclesFiltered, setvehiclesFiltered] = useState([]);
   const [showButtonRegister, setshowButtonRegister] = useState(false);
-  const [vehicleSelected, setVehicleSelected] = useState([]);
+  const [vehicleSelected, setVehicleSelected] = useState(null);
   const [vehiclePlateSelected, setVehiclePlateSelected] = useState('');
   const [celdasVehicleType, setCeldasVehicleType] = useState([]);
   const [celdaSeleted, setCeldaSeleted] = useState('');
   
   const handleAddVehicle = () => {
     // Verifica que haya al menos un vehículo seleccionado y una celda seleccionada
-    if (vehicleSelected.length > 0 && celdaSeleted !== '') {
+    if (vehicleSelected && celdaSeleted !== '') {
       // Realiza una copia del estado actual
       const updatedParkingData = [...parkingData];
 
@@ -41,13 +41,13 @@ const AddVehicleParking = forwardRef(({ vehicle, parkingData, setParkingData, on
 
       const vehicleAlreadyParked = updatedParkingData.some(
         (celdaParking) =>
-          celdaParking.vehiclePlate === vehicleSelected[0].vehiclePlate && !celdaParking.available
+          celdaParking.vehiclePlate === vehicleSelected.vehiclePlate && !celdaParking.available
       );
 
       if (updatedCelda && !vehicleAlreadyParked) {
-        updatedCelda.userId = vehicleSelected[0].documentNumber;
-        updatedCelda.ownerName = vehicleSelected[0].ownerName;
-        updatedCelda.vehiclePlate = vehicleSelected[0].vehiclePlate;
+        updatedCelda.userId = vehicleSelected.documentNumber;
+        updatedCelda.ownerName = vehicleSelected.ownerName;
+        updatedCelda.vehiclePlate = vehicleSelected.vehiclePlate;
         updatedCelda.date = new Date();
         updatedCelda.time = new Date().toLocaleTimeString();
         updatedCelda.available = false;
@@ -86,19 +86,20 @@ const AddVehicleParking = forwardRef(({ vehicle, parkingData, setParkingData, on
 
   const handleVehicleSelected = (selectedPlate) => {
     const selectedVehicle = vehiclesFiltered.find((vehicleItem) => vehicleItem.vehiclePlate === selectedPlate);
-    setVehicleSelected((prevSelectedVehicles) => [...prevSelectedVehicles, selectedVehicle]);
+    // setVehicleSelected((prevSelectedVehicles) => [...prevSelectedVehicles, selectedVehicle]);
+    setVehicleSelected(selectedVehicle);
     setVehiclePlateSelected(selectedVehicle ? selectedVehicle.vehiclePlate : '');
   }
 
   useEffect(() => {
-    if(vehicleSelected.length > 0 && vehicleSelected[0].vehicleType !== vehicle.typeVehicle) {
+    if(vehicleSelected && vehicleSelected.vehicleType !== vehicle.typeVehicle) {
       filterCeldasParking();
     }
   }, [vehicleSelected])
 
   const filterCeldasParking = () => {
     const celdasFiltradas = parkingData.filter((celda) => 
-    (celda.typeVehicle === (vehicleSelected[0].vehicleType === 'motorcycle' ? 'Moto' : 'Carro')) && celda.available
+    (celda.typeVehicle === (vehicleSelected.vehicleType === 'motorcycle' ? 'Moto' : 'Carro')) && celda.available
   );
     setCeldasVehicleType(celdasFiltradas);
   }
@@ -153,7 +154,7 @@ const AddVehicleParking = forwardRef(({ vehicle, parkingData, setParkingData, on
           <FormControl fullWidth className={styles.formControl}>
             <InputLabel id="document-type-label">
               {
-                vehicleSelected.length > 0 ? vehicleSelected[0].vehiclePlate 
+                vehicleSelected ? vehicleSelected.vehiclePlate 
                   : 
                 vehiclesFiltered.length > 1 ? "Vehiculos del propietario" : `${vehicle.typeVehicle}(s) del propietario`
               }
@@ -178,7 +179,7 @@ const AddVehicleParking = forwardRef(({ vehicle, parkingData, setParkingData, on
         {
           celdasVehicleType.length > 0 && (
             <FormControl fullWidth className={styles.formControl}>
-              <InputLabel id="celdas-type-label">{vehicleSelected.length > 0 ? `Celdas de ${vehicleSelected[0].vehicleType === "motorcycle" ? "Moto" : "Carro"} disponibles` : ''}</InputLabel>
+              <InputLabel id="celdas-type-label">{vehicleSelected ? `Celdas de ${vehicleSelected.vehicleType === "motorcycle" ? "Moto" : "Carro"} disponibles` : ''}</InputLabel>
               <Select
                 labelId="celdas-label"
                 id="celdas-type"
@@ -188,7 +189,7 @@ const AddVehicleParking = forwardRef(({ vehicle, parkingData, setParkingData, on
                 {                
                   celdasVehicleType.map((celdaItem) => (
                     <MenuItem key={celdaItem.id} value={celdaItem.id}>
-                      {`Celda de ${vehicleSelected[0].vehicleType === "motorcycle" ? "Moto" : "Carro"} - ${celdaItem.id}`}
+                      {`Celda de ${vehicleSelected.vehicleType === "motorcycle" ? "Moto" : "Carro"} - ${celdaItem.id}`}
                     </MenuItem>
                   ))
                 }
@@ -204,8 +205,8 @@ const AddVehicleParking = forwardRef(({ vehicle, parkingData, setParkingData, on
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancelar</Button>
-        <Button onClick={handleAddVehicle} disabled={!vehicleSelected.length > 0 || !celdaSeleted}>
-          {`Ingresar ${vehicleSelected.length > 0 ? (vehicleSelected[0].vehicleType === "motorcycle" ? "Moto" : "Carro") : vehicle.typeVehicle}`}
+        <Button onClick={handleAddVehicle} disabled={!vehicleSelected || !celdaSeleted}>
+          {`Ingresar ${vehicleSelected ? (vehicleSelected.vehicleType === "motorcycle" ? "Moto" : "Carro") : vehicle.typeVehicle}`}
         </Button>
       </DialogActions>
     </Dialog>

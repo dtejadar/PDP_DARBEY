@@ -27,18 +27,18 @@ const Sidebar = () => {
       <IconButton className={styles.menuButton} onClick={handleToggleDrawer} size="large">
         <MenuIcon />
       </IconButton>
-      <Drawer anchor="left" open={open} onClose={handleToggleDrawer}>
-        <div className={styles.drawer}>
-          <List>
+      <Drawer  anchor="left" open={open} onClose={handleToggleDrawer}>
+        <div className={styles.drawer} >
+          <List sx={{background: '#034893 !important'}}>
             <ListItem button onClick={() => handleNavigate('/Dashboard')}>
               <ListItemIcon>
-                <HomeIcon />
+                <HomeIcon sx={{color: 'white'}}/>
               </ListItemIcon>
               <ListItemText primary="Inicio" />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
-                <AddCircleOutlineIcon />
+                <AddCircleOutlineIcon sx={{color: 'white'}} />
               </ListItemIcon>
               <ListItemText 
                 primary="Registrar Vehículo" 
@@ -47,7 +47,7 @@ const Sidebar = () => {
             </ListItem>
             <ListItem button>
               <ListItemIcon>
-                <VisibilityIcon />
+                <VisibilityIcon sx={{color: 'white'}} />
               </ListItemIcon>
               <ListItemText 
                 primary="Visualizar Celdas" 

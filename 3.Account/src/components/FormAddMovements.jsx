@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import uuid4 from "uuid4";
 import styles from './FormAddMovements.module.css';
 
-function FormAddMovements({movimientos, editMovimiento, setMovimientos, setEditMovimiento, setMovimientosAux}) {
+function FormAddMovements({movimientos, editMovimiento, setMovimientos, setEditMovimiento, setMovimientosAux, saldoFinal}) {
 
     const [tipo, setTipo] = useState("ingreso");
     const [nombre, setNombre] = useState("");
@@ -10,6 +10,10 @@ function FormAddMovements({movimientos, editMovimiento, setMovimientos, setEditM
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(tipo === 'gasto' && cantidad > saldoFinal){
+          resetFieldsForm();
+          return;
+        }
         if(editMovimiento)
         {
             handleEditMovimiento(editMovimiento);

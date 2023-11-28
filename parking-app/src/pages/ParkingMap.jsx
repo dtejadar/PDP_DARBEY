@@ -56,7 +56,7 @@ const ParkingMap = () => {
       updatedCelda.time = '';
       updatedCelda.available = true;
 
-      setParkingData(updatedParkingData);
+      setLocalParkingData(updatedParkingData);
     }
     
     setModalOpen(true);
@@ -88,16 +88,11 @@ const ParkingMap = () => {
       return;
     }
 
-    // Filtrar por userId
-    const filteredByUserId = parkingData.filter((vehicle) => vehicle.userId === input);
+    const filteredByUserId = initialParkingData.filter((vehicle) => vehicle.userId === input);
+    const filteredByVehiclePlate = initialParkingData.filter((vehicle) => vehicle.vehiclePlate === input);
   
-    // Filtrar por vehiclePlate
-    const filteredByVehiclePlate = parkingData.filter((vehicle) => vehicle.vehiclePlate === input);
-  
-    // Combinar los resultados de ambas búsquedas
     const filteredResults = [...filteredByUserId, ...filteredByVehiclePlate];
   
-    // Actualizar el estado solo si hay resultados
     if (filteredResults.length > 0) {
       setLocalParkingData(filteredResults);
     } else {
